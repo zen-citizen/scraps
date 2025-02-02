@@ -19,11 +19,12 @@
             justify-content: center;
             align-items: flex-start;
             /* Align items to the top */
-            min-height: 100vh;
+            /* min-height: 100vh; */
         }
 
         .container {
             max-width: 600px;
+            overflow-y: auto;
             background: white;
             padding: 30px;
             border-radius: 10px;
@@ -82,7 +83,7 @@
             padding: 10px 15px;
             border: none;
             border-radius: 5px;
-            background-color: #007bff;
+            background-color: #000000;
             color: white;
             cursor: pointer;
             margin: 5px;
@@ -93,8 +94,23 @@
         }
 
         button:hover {
-            background-color: #0056b3;
+            background-color: #000000;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        button:disabled {
+            background-color: #cccccc;
+            color: #666666;
+            cursor: not-allowed;
+            box-shadow: none;
+            opacity: 0.7;
+        }
+
+        .no-results {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            padding: 10px;
+            color: #666;
         }
 
         #loading {
@@ -145,12 +161,6 @@
             <div class="examples">
                 Enter at least the first 3 characters of Village name
             </div>
-            <div class="examples">
-                Note: Please try variations in spelling if the Village name does not
-                appear in your search. For instance, 'Whitefield' is listed as 'White
-                Field' in Kaveri 2.0, and it will not appear if you search for
-                'Whitefield.'
-            </div>
         </form>
         <p id="loading">Fetching data, please wait...</p>
     </div>
@@ -178,7 +188,7 @@
         const inputField = document.getElementById("villageName");
         const villageForm = document.getElementById("villageForm");
 
-        // Enable Search button when input is not empty
+        // Enable Search button when input has 3 or more characters
         inputField.addEventListener("input", () => {
             searchButton.disabled = inputField.value.trim().length < 3;
         });
@@ -198,8 +208,16 @@
             try {
                 fuseOptions = {
                     keys: ["village"],
-                    isCaseSensitive: true,
+                    isCaseSensitive: false,
+                    threshold: 0.3,
                     distance: 1,
+                    getFn: (obj, path) => {
+                        const value = obj[path]
+                        return [
+                            value.replace(/\s+/g, ''),
+                            value,
+                        ]
+                    }
                 };
                 const fuse = new Fuse(villageData, fuseOptions);
 
@@ -256,13 +274,19 @@
                 resultsDiv.appendChild(table);
 
             } else {
-                resultsDiv.innerHTML += "<div>No results found.</div>";
+                resultsDiv.innerHTML += '<div class="no-results">No results found.</div>';
             }
 
             resultContainer.appendChild(resultsDiv);
             
             // scroll to the result div
-            document.getElementById("results").scrollIntoView();
+            // document.getElementById("results").scrollIntoView();
+            const container = document.querySelector('.container');
+            const resultsElement = document.getElementById('results');
+            container.scrollTo({
+                top: resultsElement.offsetTop - container.offsetTop,
+                behavior: 'smooth'
+            });
         }
 
         // Function to handle error
