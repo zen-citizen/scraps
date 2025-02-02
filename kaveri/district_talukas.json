@@ -1,0 +1,1422 @@
+{
+  "Bagalkot": [
+    {
+      "talukCode": 93,
+      "talukNamek": "ÊæÁµæÕê",
+      "talukNamee": "Badami",
+      "unit": "G"
+    },
+    {
+      "talukCode": 90,
+      "talukNamek": "Êæ˜µåÑ’ðëé¯ð",
+      "talukNamee": "Bagalkot",
+      "unit": "G"
+    },
+    {
+      "talukCode": 95,
+      "talukNamek": "Ëéâå˜™",
+      "talukNamee": "Bilgi",
+      "unit": "G"
+    },
+    {
+      "talukCode": 92,
+      "talukNamek": "ßåêÄå˜µåêÁµå",
+      "talukNamee": "Hunagunda",
+      "unit": "G"
+    },
+    {
+      "talukCode": 94,
+      "talukNamek": "¦Ôåê•´™",
+      "talukNamee": "Jamakhandi",
+      "unit": "G"
+    },
+    {
+      "talukCode": 91,
+      "talukNamek": "ÔåêëÁ·µðëéâå",
+      "talukNamee": "Mudhol",
+      "unit": "G"
+    }
+  ],
+  "Bangalore Rural": [
+    {
+      "talukCode": 113,
+      "talukNamek": "ÁµðéÔåÄåßåãä",
+      "talukNamee": "Devanahalli",
+      "unit": "G"
+    },
+    {
+      "talukCode": 110,
+      "talukNamek": "Áµðë´µå¶ÊâæäÇÈåíú²µå",
+      "talukNamee": "Doddaballapura",
+      "unit": "G"
+    },
+    {
+      "talukCode": 112,
+      "talukNamek": "ßðëÜÈå’ðëé¯ð",
+      "talukNamee": "Hosakote",
+      "unit": "G"
+    },
+    {
+      "talukCode": 171,
+      "talukNamek": "ÄðÑÔåê˜µåÑ",
+      "talukNamee": "Nelamangala",
+      "unit": "G"
+    }
+  ],
+  "Basavanagudi": [
+    {
+      "talukCode": 193,
+      "talukNamek": "ƒÄðé’åÑó",
+      "talukNamee": "Anekal",
+      "unit": "G"
+    },
+    {
+      "talukCode": 1,
+      "talukNamek": "ÊÜÈåÔåÄå˜µåê´™",
+      "talukNamee": "Basavana Gudi",
+      "unit": "G"
+    },
+    {
+      "talukCode": 213,
+      "talukNamek": "ಚಾಮರಾಜಪೇಟೆ",
+      "talukNamee": "Chamarajpete",
+      "unit": "G"
+    },
+    {
+      "talukCode": 218,
+      "talukNamek": "ಕೆಂಗೇರಿ",
+      "talukNamee": "Kengeri",
+      "unit": "G"
+    }
+  ],
+  "Belgaum": [
+    {
+      "talukCode": 121,
+      "talukNamek": "ƒÁ¿·µåº",
+      "talukNamee": "Athani",
+      "unit": "G"
+    },
+    {
+      "talukCode": 123,
+      "talukNamek": "ÊðñÑßðë˜µåÑ",
+      "talukNamee": "Bailhongal",
+      "unit": "G"
+    },
+    {
+      "talukCode": 122,
+      "talukNamek": "Êðâå˜µæ",
+      "talukNamee": "Belgaum",
+      "unit": "G"
+    },
+    {
+      "talukCode": 124,
+      "talukNamek": "¡’ðë”´™",
+      "talukNamee": "Chikkodi",
+      "unit": "G"
+    },
+    {
+      "talukCode": 117,
+      "talukNamek": "˜µðëé’æ’ó",
+      "talukNamee": "Gokak",
+      "unit": "G"
+    },
+    {
+      "talukCode": 118,
+      "talukNamek": "ßåê’ð”é²™",
+      "talukNamee": "Hukkeri",
+      "unit": "G"
+    },
+    {
+      "talukCode": 224,
+      "talukNamek": "ಕಾಗವಾಡ",
+      "talukNamee": "Kagwad",
+      "unit": "G"
+    },
+    {
+      "talukCode": 120,
+      "talukNamek": "•æÄåÇÈåíú²µå",
+      "talukNamee": "Khanapur",
+      "unit": "G"
+    },
+    {
+      "talukCode": 223,
+      "talukNamek": "ÊðñÁµåë²µåê",
+      "talukNamee": "Kittur",
+      "unit": "C"
+    },
+    {
+      "talukCode": 209,
+      "talukNamek": "ಮೂಡಲಗಿ",
+      "talukNamee": "Mudalagi",
+      "unit": "G"
+    },
+    {
+      "talukCode": 119,
+      "talukNamek": "Ôåêê²µå˜µðëé´µå",
+      "talukNamee": "Muragod",
+      "unit": "G"
+    },
+    {
+      "talukCode": 125,
+      "talukNamek": "ÅÇÈæÉº",
+      "talukNamee": "Nippani",
+      "unit": "G"
+    },
+    {
+      "talukCode": 127,
+      "talukNamek": "²µæ²ìåêÊæ˜µå",
+      "talukNamee": "Raibagh",
+      "unit": "G"
+    },
+    {
+      "talukCode": 129,
+      "talukNamek": "²µæÔåêÁµåê˜µå",
+      "talukNamee": "Ramdurg",
+      "unit": "G"
+    },
+    {
+      "talukCode": 128,
+      "talukNamek": "ÜÈåÁµåÑ˜µå",
+      "talukNamee": "Sadalaga",
+      "unit": "G"
+    },
+    {
+      "talukCode": 126,
+      "talukNamek": "ÜÈòÁµå½¾",
+      "talukNamee": "Soudatti",
+      "unit": "G"
+    }
+  ],
+  "Bellary": [
+    {
+      "talukCode": 130,
+      "talukNamek": "Êâæä²™",
+      "talukNamee": "Bellary",
+      "unit": "C"
+    },
+    {
+      "talukCode": 140,
+      "talukNamek": "’åÇÝÓ",
+      "talukNamee": "Kampli",
+      "unit": "G"
+    },
+    {
+      "talukCode": 137,
+      "talukNamek": "’åê²µåê˜µðëé´µåê",
+      "talukNamee": "Kurugodu",
+      "unit": "G"
+    },
+    {
+      "talukCode": 138,
+      "talukNamek": "ÜÈå´µåë²µåê",
+      "talukNamee": "Sandur",
+      "unit": "G"
+    },
+    {
+      "talukCode": 139,
+      "talukNamek": "Ø²µå˜µåêÇÈåÉ",
+      "talukNamee": "Shiraguppa",
+      "unit": "G"
+    }
+  ],
+  "Bidar": [
+    {
+      "talukCode": 108,
+      "talukNamek": "²µæÁµó",
+      "talukNamee": "Aurad",
+      "unit": "G"
+    },
+    {
+      "talukCode": 106,
+      "talukNamek": "ÊÜÈåÔå’åÑæÏ¸",
+      "talukNamee": "Basavakalyana",
+      "unit": "G"
+    },
+    {
+      "talukCode": 107,
+      "talukNamek": "Ê·æÒ”",
+      "talukNamee": "Bhalki",
+      "unit": "G"
+    },
+    {
+      "talukCode": 114,
+      "talukNamek": "ËéÁµå²µå",
+      "talukNamee": "Bidar",
+      "unit": "G"
+    },
+    {
+      "talukCode": 111,
+      "talukNamek": "ßåêÔåêÄæÊæÁµå",
+      "talukNamee": "Humnabad",
+      "unit": "G"
+    }
+  ],
+  "Bijapur": [
+    {
+      "talukCode": 102,
+      "talukNamek": "ÊÜÈåÔåÄåÊæ˜µðÔæ´™",
+      "talukNamee": "Basavanabagewadi",
+      "unit": "G"
+    },
+    {
+      "talukCode": 101,
+      "talukNamek": "Ë§æÇÈåíú²µå",
+      "talukNamee": "Bijapura",
+      "unit": "G"
+    },
+    {
+      "talukCode": 103,
+      "talukNamek": "…´™",
+      "talukNamee": "Indi",
+      "unit": "G"
+    },
+    {
+      "talukCode": 104,
+      "talukNamek": "ÔåêêÁµðÂéËßæâå",
+      "talukNamee": "Muddebihal",
+      "unit": "G"
+    },
+    {
+      "talukCode": 105,
+      "talukNamek": "ÜÝÁµå˜™",
+      "talukNamee": "Sindhagi",
+      "unit": "G"
+    },
+    {
+      "talukCode": 228,
+      "talukNamek": "ತಿಕೋಟಾ",
+      "talukNamee": "Tikota",
+      "unit": "G"
+    }
+  ],
+  "Chamarajanagar": [
+    {
+      "talukCode": 39,
+      "talukNamek": "ôæÔåê²µæ¦Äå˜µå²µå",
+      "talukNamee": "Chamarajanagar",
+      "unit": "G"
+    },
+    {
+      "talukCode": 56,
+      "talukNamek": "˜µåê´µåêÓÇÈðé¯ð",
+      "talukNamee": "Gundlupete",
+      "unit": "G"
+    },
+    {
+      "talukCode": 38,
+      "talukNamek": "ßåÄåë²µåê",
+      "talukNamee": "Hanur",
+      "unit": "C"
+    },
+    {
+      "talukCode": 40,
+      "talukNamek": "’ðëâðäé˜µæÑ",
+      "talukNamee": "Kollegala",
+      "unit": "C"
+    },
+    {
+      "talukCode": 43,
+      "talukNamek": "’åêÁµðé²µåê",
+      "talukNamee": "Kuderu",
+      "unit": "G"
+    },
+    {
+      "talukCode": 44,
+      "talukNamek": "²ìåêâåÁµåë²µåê",
+      "talukNamee": "Yelanduru",
+      "unit": "G"
+    }
+  ],
+  "Chikkaballapura": [
+    {
+      "talukCode": 19,
+      "talukNamek": "Êæ˜µðéÇÈåÒÓ",
+      "talukNamee": "Bagepalli",
+      "unit": "G"
+    },
+    {
+      "talukCode": 230,
+      "talukNamek": "Cheluru",
+      "talukNamee": "Cheluru",
+      "unit": "G"
+    },
+    {
+      "talukCode": 11,
+      "talukNamek": "¡’å”ÊâæäÇÈåíú²µå",
+      "talukNamee": "Chikkaballapur",
+      "unit": "G"
+    },
+    {
+      "talukCode": 14,
+      "talukNamek": "¡¼æÔåêº",
+      "talukNamee": "Chintamani",
+      "unit": "G"
+    },
+    {
+      "talukCode": 12,
+      "talukNamek": "˜µò²™ËÁµåÄåë²µåê",
+      "talukNamee": "Gauribidanur",
+      "unit": "G"
+    },
+    {
+      "talukCode": 21,
+      "talukNamek": "˜µåê´™Ê´µð",
+      "talukNamee": "Gudibande",
+      "unit": "G"
+    },
+    {
+      "talukCode": 225,
+      "talukNamek": "Manchenahalli",
+      "talukNamee": "Manchenahalli",
+      "unit": "G"
+    },
+    {
+      "talukCode": 20,
+      "talukNamek": "Ø´µåÓ›å®±",
+      "talukNamee": "Shidlaghatta",
+      "unit": "G"
+    }
+  ],
+  "Chikkamagalur": [
+    {
+      "talukCode": 84,
+      "talukNamek": "¡’å”Ôåê˜µåâåë²µåê",
+      "talukNamee": "Chikkamagalur",
+      "unit": "G"
+    },
+    {
+      "talukCode": 89,
+      "talukNamek": "’å´µåë²µåê",
+      "talukNamee": "Kadur",
+      "unit": "G"
+    },
+    {
+      "talukCode": 87,
+      "talukNamek": "’ðëÇÈåÉ",
+      "talukNamee": "Koppa",
+      "unit": "G"
+    },
+    {
+      "talukCode": 86,
+      "talukNamek": "Ôåêë´™˜µð²µð",
+      "talukNamee": "Mudigere",
+      "unit": "G"
+    },
+    {
+      "talukCode": 85,
+      "talukNamek": "Äå²µåÜÝßå²µæ¦ÇÈåíú²µå",
+      "talukNamee": "Narasimharajapura",
+      "unit": "G"
+    },
+    {
+      "talukCode": 88,
+      "talukNamek": "×åï˜µðé²™",
+      "talukNamee": "Shringeri",
+      "unit": "G"
+    },
+    {
+      "talukCode": 82,
+      "talukNamek": "¼å²™é’ð²µð",
+      "talukNamee": "Tarikere",
+      "unit": "G"
+    }
+  ],
+  "Chitradurga": [
+    {
+      "talukCode": 183,
+      "talukNamek": "ôåâåä’ð²µð",
+      "talukNamee": "Challakere",
+      "unit": "G"
+    },
+    {
+      "talukCode": 197,
+      "talukNamek": "¡¼åÐÁµåê˜µå",
+      "talukNamee": "Chitradurga",
+      "unit": "G"
+    },
+    {
+      "talukCode": 195,
+      "talukNamek": "à²™²ìåêë²µåê",
+      "talukNamee": "Hiriyur",
+      "unit": "G"
+    },
+    {
+      "talukCode": 196,
+      "talukNamek": "ßðëâåÑð”²µð",
+      "talukNamee": "Holalkere",
+      "unit": "G"
+    },
+    {
+      "talukCode": 198,
+      "talukNamek": "ßðëÜÈåÁµåê˜µå",
+      "talukNamee": "Hosadurga",
+      "unit": "G"
+    },
+    {
+      "talukCode": 199,
+      "talukNamek": "Ôðëâå’æÑëÍ²µåê",
+      "talukNamee": "Molakalmur",
+      "unit": "G"
+    }
+  ],
+  "Davangere": [
+    {
+      "talukCode": 61,
+      "talukNamek": "ôåÄåÆ˜™²™",
+      "talukNamee": "Channagiri",
+      "unit": "G"
+    },
+    {
+      "talukCode": 62,
+      "talukNamek": "ÁµæÔå¸˜µð²µð",
+      "talukNamee": "Davanagere",
+      "unit": "G"
+    },
+    {
+      "talukCode": 64,
+      "talukNamek": "ßå²™ßå²µå",
+      "talukNamee": "Harihara",
+      "unit": "G"
+    },
+    {
+      "talukCode": 60,
+      "talukNamek": "ßðëÄæÆã",
+      "talukNamee": "Honnali",
+      "unit": "G"
+    },
+    {
+      "talukCode": 65,
+      "talukNamek": "¦˜µåâåë²µåê",
+      "talukNamee": "Jagalur",
+      "unit": "G"
+    },
+    {
+      "talukCode": 221,
+      "talukNamek": "Nyamati",
+      "talukNamee": "Nyamati",
+      "unit": "C"
+    }
+  ],
+  "Dharwad": [
+    {
+      "talukCode": 200,
+      "talukNamek": "Á·µæ²µåÔæ´µå",
+      "talukNamee": "Dharwad",
+      "unit": "G"
+    },
+    {
+      "talukCode": 80,
+      "talukNamek": "ßåêÊÌãä",
+      "talukNamee": "Hubli",
+      "unit": "G"
+    },
+    {
+      "talukCode": 201,
+      "talukNamek": "’åÑ›å®˜™",
+      "talukNamee": "Kalghatagi",
+      "unit": "G"
+    },
+    {
+      "talukCode": 202,
+      "talukNamek": "’åêÁµå˜µðëéâå",
+      "talukNamee": "Kundagol",
+      "unit": "G"
+    },
+    {
+      "talukCode": 203,
+      "talukNamek": "ÄåÔåÑ˜µåêÁµå",
+      "talukNamee": "Navalgund",
+      "unit": "G"
+    }
+  ],
+  "Gadag": [
+    {
+      "talukCode": 100,
+      "talukNamek": "˜µåÁµå˜µå",
+      "talukNamee": "Gadag",
+      "unit": "G"
+    },
+    {
+      "talukCode": 99,
+      "talukNamek": "Ôåêê´µå²µå˜™",
+      "talukNamee": "Mundaragi",
+      "unit": "G"
+    },
+    {
+      "talukCode": 98,
+      "talukNamek": "Äå²µå˜µåêÁµå",
+      "talukNamee": "Naragunda",
+      "unit": "G"
+    },
+    {
+      "talukCode": 97,
+      "talukNamek": "²µðëé¸",
+      "talukNamee": "Ron",
+      "unit": "G"
+    },
+    {
+      "talukCode": 96,
+      "talukNamek": "Ø²µåßå°±",
+      "talukNamee": "Shirahatti",
+      "unit": "G"
+    }
+  ],
+  "Gandhinagar": [
+    {
+      "talukCode": 6,
+      "talukNamek": "˜µæÁ·™Äå˜µå²µå",
+      "talukNamee": "Gandhi nagar",
+      "unit": "G"
+    },
+    {
+      "talukCode": 3,
+      "talukNamek": "²ìåêÑßå’å",
+      "talukNamee": "Yelahanka",
+      "unit": "G"
+    }
+  ],
+  "Gulbarga": [
+    {
+      "talukCode": 147,
+      "talukNamek": "ƒÇ·Èå¦ÑóÇÈåíú²µå",
+      "talukNamee": "Afzalpur",
+      "unit": "G"
+    },
+    {
+      "talukCode": 152,
+      "talukNamek": "„âåÁµå",
+      "talukNamee": "Alanda",
+      "unit": "G"
+    },
+    {
+      "talukCode": 148,
+      "talukNamek": "¡ôåëã",
+      "talukNamee": "Chincholi",
+      "unit": "G"
+    },
+    {
+      "talukCode": 150,
+      "talukNamek": "¡¼æ¾ÇÈåíú²µå",
+      "talukNamee": "Chittapur",
+      "unit": "G"
+    },
+    {
+      "talukCode": 145,
+      "talukNamek": "˜µåêÑÌ˜µæ",
+      "talukNamee": "Gulbarga",
+      "unit": "G"
+    },
+    {
+      "talukCode": 143,
+      "talukNamek": "§ðéÔå˜™",
+      "talukNamee": "Jewargi",
+      "unit": "G"
+    },
+    {
+      "talukCode": 151,
+      "talukNamek": "ÜÈðé´µå",
+      "talukNamee": "Sedam",
+      "unit": "G"
+    }
+  ],
+  "Hassan": [
+    {
+      "talukCode": 69,
+      "talukNamek": "„Ñë²µåê",
+      "talukNamee": "Alur",
+      "unit": "G"
+    },
+    {
+      "talukCode": 28,
+      "talukNamek": "ƒ²µå’åÑ˜µåë´µåê",
+      "talukNamee": "Arakalagudu",
+      "unit": "G"
+    },
+    {
+      "talukCode": 32,
+      "talukNamek": "ƒ²µåÜÝé’ð²µð",
+      "talukNamee": "Arasikere",
+      "unit": "G"
+    },
+    {
+      "talukCode": 33,
+      "talukNamek": "Ê¹æÔå²µå",
+      "talukNamee": "Banavara",
+      "unit": "G"
+    },
+    {
+      "talukCode": 71,
+      "talukNamek": "ÊðÑë²µåê",
+      "talukNamee": "Belur",
+      "unit": "G"
+    },
+    {
+      "talukCode": 67,
+      "talukNamek": "ôåÄåÆ²µæ²ìåêÇÈå®±¸",
+      "talukNamee": "Channarayapatna",
+      "unit": "G"
+    },
+    {
+      "talukCode": 66,
+      "talukNamek": "ßæÜÈåÄå",
+      "talukNamee": "Hassan",
+      "unit": "G"
+    },
+    {
+      "talukCode": 30,
+      "talukNamek": "ßðëâðéÄå²µåÜÝéÇÈåíú²µå",
+      "talukNamee": "Holenarasipura",
+      "unit": "G"
+    },
+    {
+      "talukCode": 70,
+      "talukNamek": "Äåê˜µðšéßåãä",
+      "talukNamee": "Nuggehalli",
+      "unit": "G"
+    },
+    {
+      "talukCode": 68,
+      "talukNamek": "ÜÈå’åÑðé×åÇÈåíú²µå",
+      "talukNamee": "Sakaleshpura",
+      "unit": "G"
+    }
+  ],
+  "Haveri": [
+    {
+      "talukCode": 72,
+      "talukNamek": "ÊæÏ´µå˜™",
+      "talukNamee": "Byadagi",
+      "unit": "G"
+    },
+    {
+      "talukCode": 77,
+      "talukNamek": "ßæÄå˜µåÑÓ",
+      "talukNamee": "Hanagal",
+      "unit": "G"
+    },
+    {
+      "talukCode": 75,
+      "talukNamek": "ßæÔðé²™",
+      "talukNamee": "Haveri",
+      "unit": "G"
+    },
+    {
+      "talukCode": 73,
+      "talukNamek": "à²µðé’ð²µåë²µå",
+      "talukNamee": "Hirekerur",
+      "unit": "G"
+    },
+    {
+      "talukCode": 76,
+      "talukNamek": "²µæºÊðÄåëÆ²µåê",
+      "talukNamee": "Ranibennur",
+      "unit": "G"
+    },
+    {
+      "talukCode": 74,
+      "talukNamek": "ÜÈåÔå¸ë²µåê",
+      "talukNamee": "Savanuru",
+      "unit": "G"
+    },
+    {
+      "talukCode": 78,
+      "talukNamek": "Ø˜µæšÔó",
+      "talukNamee": "Shiggon",
+      "unit": "G"
+    }
+  ],
+  "Jayanagar": [
+    {
+      "talukCode": 5,
+      "talukNamek": "Êð˜µåâåë²µåê Áµå“Û¸",
+      "talukNamee": "Bangalore South",
+      "unit": "G"
+    },
+    {
+      "talukCode": 7,
+      "talukNamek": "¦²ìåêÄå˜µå²µå",
+      "talukNamee": "Jayanagar",
+      "unit": "G"
+    },
+    {
+      "talukCode": 191,
+      "talukNamek": "’ð˜µðé²™",
+      "talukNamee": "Kengeri",
+      "unit": null
+    }
+  ],
+  "Karwar": [
+    {
+      "talukCode": 207,
+      "talukNamek": "ƒ’ðëéÑ",
+      "talukNamee": "Ankola",
+      "unit": "G"
+    },
+    {
+      "talukCode": 206,
+      "talukNamek": "Ê·å®”âó ¼æÑë’ó",
+      "talukNamee": "Bhatkal Taluk",
+      "unit": "G"
+    },
+    {
+      "talukCode": 161,
+      "talukNamek": "ßåã²ìåìæâå",
+      "talukNamee": "Haliyala",
+      "unit": "G"
+    },
+    {
+      "talukCode": 163,
+      "talukNamek": "ßðëÄæÆÔå²µå",
+      "talukNamee": "Honnavar",
+      "unit": "G"
+    },
+    {
+      "talukCode": 162,
+      "talukNamek": "’æ²µåÔæ²µå",
+      "talukNamee": "Karwar",
+      "unit": "G"
+    },
+    {
+      "talukCode": 170,
+      "talukNamek": "’åêÔåê¯æ",
+      "talukNamee": "Kumata",
+      "unit": "G"
+    },
+    {
+      "talukCode": 205,
+      "talukNamek": "Ôåêê´µå˜µðëé´µå ¼æÑðëÓé’åê",
+      "talukNamee": "Mundagoda Taluk",
+      "unit": "G"
+    },
+    {
+      "talukCode": 204,
+      "talukNamek": "ÜÝÁµæÂÇÈåíú²µå ¼æÑðëÓé’åê",
+      "talukNamee": "Siddapura Taluk",
+      "unit": "G"
+    },
+    {
+      "talukCode": 169,
+      "talukNamek": "Ø²µåÜÝ",
+      "talukNamee": "Sirasi",
+      "unit": "G"
+    },
+    {
+      "talukCode": 208,
+      "talukNamek": "Yellapura",
+      "talukNamee": "Yellapura",
+      "unit": "G"
+    }
+  ],
+  "Kodagu": [
+    {
+      "talukCode": 212,
+      "talukNamek": "ಕುಶಾಲನಗರ",
+      "talukNamee": "Kushalnagar",
+      "unit": "G"
+    },
+    {
+      "talukCode": 83,
+      "talukNamek": "Ôåê´™’ðé²™",
+      "talukNamee": "Madikeri",
+      "unit": "G"
+    },
+    {
+      "talukCode": 81,
+      "talukNamek": "ÜÈðëéÔåêÔæ²µåÇÈðé¯ð",
+      "talukNamee": "Somawarpet",
+      "unit": "G"
+    },
+    {
+      "talukCode": 79,
+      "talukNamek": "Õé²µæ¦ÇÈðé¯ð",
+      "talukNamee": "Veerajpete",
+      "unit": "G"
+    }
+  ],
+  "Kolar": [
+    {
+      "talukCode": 16,
+      "talukNamek": "Ê˜µæ²µåÇÈðé¯ðµå",
+      "talukNamee": "Bangarapet",
+      "unit": "G"
+    },
+    {
+      "talukCode": 13,
+      "talukNamek": "’ðëéÑæ²µå",
+      "talukNamee": "Kolar",
+      "unit": "G"
+    },
+    {
+      "talukCode": 211,
+      "talukNamek": "Kolar Gold Field",
+      "talukNamee": "Kolar Gold Field",
+      "unit": "C"
+    },
+    {
+      "talukCode": 15,
+      "talukNamek": "ÔåìæÑë²µåê",
+      "talukNamee": "Malur",
+      "unit": "G"
+    },
+    {
+      "talukCode": 18,
+      "talukNamek": "ÔåêêâåÊæ˜™Ñê",
+      "talukNamee": "Mulabagalu",
+      "unit": "G"
+    },
+    {
+      "talukCode": 17,
+      "talukNamek": "‚ÅÔæÜÈåÇÈåíú²µå",
+      "talukNamee": "Srinivasapura",
+      "unit": "G"
+    }
+  ],
+  "Koppal": [
+    {
+      "talukCode": 176,
+      "talukNamek": "˜µå˜µæÔå½",
+      "talukNamee": "Gangavati",
+      "unit": "G"
+    },
+    {
+      "talukCode": 177,
+      "talukNamek": "’ðëÇÈåÉâå",
+      "talukNamee": "Koppala",
+      "unit": "G"
+    },
+    {
+      "talukCode": 178,
+      "talukNamek": "’åêÚÈå³˜™",
+      "talukNamee": "Kushtagi",
+      "unit": "G"
+    },
+    {
+      "talukCode": 179,
+      "talukNamek": "²ìåêÑÊê˜µæ",
+      "talukNamee": "Yelburga",
+      "unit": "G"
+    }
+  ],
+  "Mandya": [
+    {
+      "talukCode": 31,
+      "talukNamek": "Êðâåëä²µåê",
+      "talukNamee": "Bellur",
+      "unit": "G"
+    },
+    {
+      "talukCode": 35,
+      "talukNamek": "’ð.„²µó.ÇÈðé°",
+      "talukNamee": "K.R.Pet",
+      "unit": "G"
+    },
+    {
+      "talukCode": 9,
+      "talukNamek": "ÔåêÁµåëÂ²µó",
+      "talukNamee": "Maddur",
+      "unit": "G"
+    },
+    {
+      "talukCode": 24,
+      "talukNamek": "ÔåêâåÔåãä",
+      "talukNamee": "Malavalli",
+      "unit": "G"
+    },
+    {
+      "talukCode": 25,
+      "talukNamek": "Ôåê´µåÏ",
+      "talukNamee": "Mandya",
+      "unit": "G"
+    },
+    {
+      "talukCode": 194,
+      "talukNamek": "Äæ˜µåÔåê˜µåÑ",
+      "talukNamee": "Nagamangala",
+      "unit": "G"
+    },
+    {
+      "talukCode": 27,
+      "talukNamek": "ÇÈæ´µåÔåÇÈåíú²µå",
+      "talukNamee": "Pandavapura",
+      "unit": "G"
+    },
+    {
+      "talukCode": 34,
+      "talukNamek": "‚²µå˜µåÇÈå®±¸",
+      "talukNamee": "Srirangapatna",
+      "unit": "G"
+    }
+  ],
+  "Mangalore": [
+    {
+      "talukCode": 187,
+      "talukNamek": "Ê¯æÖâå",
+      "talukNamee": "Bantwala",
+      "unit": "C"
+    },
+    {
+      "talukCode": 181,
+      "talukNamek": "Êðâå¾˜µå´™",
+      "talukNamee": "Beltangadi",
+      "unit": "C"
+    },
+    {
+      "talukCode": 185,
+      "talukNamek": "Ôåê˜µåâåë²µåê ÜÝé°",
+      "talukNamee": "Mangalore City",
+      "unit": "C"
+    },
+    {
+      "talukCode": 184,
+      "talukNamek": "Ôåê˜µåâåë²µåê ¼æÑë’åê",
+      "talukNamee": "Mangalore Taluk",
+      "unit": "C"
+    },
+    {
+      "talukCode": 189,
+      "talukNamek": "Ôåêë´µåËÁµðÐ",
+      "talukNamee": "Mudabidre",
+      "unit": "C"
+    },
+    {
+      "talukCode": 190,
+      "talukNamek": "ÔåêëÒ”",
+      "talukNamee": "Mulki",
+      "unit": "C"
+    },
+    {
+      "talukCode": 186,
+      "talukNamek": "ÇÈåíú¼åë¾²µåê",
+      "talukNamee": "Puttur",
+      "unit": "C"
+    },
+    {
+      "talukCode": 188,
+      "talukNamek": "ÜÈåêâåÏ",
+      "talukNamee": "Sullia",
+      "unit": "C"
+    },
+    {
+      "talukCode": 227,
+      "talukNamek": "ÃŠÂÂ¯Ã¦Ã–Ã¢Ã¥",
+      "talukNamee": "Ullala",
+      "unit": "C"
+    },
+    {
+      "talukCode": 182,
+      "talukNamek": "Õ®Ó",
+      "talukNamee": "Vittla",
+      "unit": "G"
+    }
+  ],
+  "Mysore": [
+    {
+      "talukCode": 46,
+      "talukNamek": "ÊÄåëÆ²µåê",
+      "talukNamee": "Bannur",
+      "unit": "G"
+    },
+    {
+      "talukCode": 216,
+      "talukNamek": "ಬೆಟ್ಟದಪುರ",
+      "talukNamee": "Bettadapura\n",
+      "unit": "G"
+    },
+    {
+      "talukCode": 45,
+      "talukNamek": "ßð˜µåš´µåÁµðéÔåÄå ’ðëé¯ð",
+      "talukNamee": "Heggadadevana Kote",
+      "unit": "G"
+    },
+    {
+      "talukCode": 59,
+      "talukNamek": "ßåê¸ÜÈåë²µåê",
+      "talukNamee": "Hunsur",
+      "unit": "G"
+    },
+    {
+      "talukCode": 50,
+      "talukNamek": "’ð „²µó Äå˜µå²µå",
+      "talukNamee": "K R Nagara",
+      "unit": "G"
+    },
+    {
+      "talukCode": 49,
+      "talukNamek": "ÕêÑð",
+      "talukNamee": "Mirle",
+      "unit": "G"
+    },
+    {
+      "talukCode": 214,
+      "talukNamek": "ಮೈಸೂರು ಪೂರ್ವ",
+      "talukNamee": "Mysore East",
+      "unit": "G"
+    },
+    {
+      "talukCode": 37,
+      "talukNamek": "ÔðêñÜÈåë²µåê(‡¼å¾²µå)",
+      "talukNamee": "Mysore(North)",
+      "unit": "G"
+    },
+    {
+      "talukCode": 36,
+      "talukNamek": "ÔðêñÜÈåë²µåê(Áµå“Û¸)",
+      "talukNamee": "Mysore(South)",
+      "unit": "G"
+    },
+    {
+      "talukCode": 215,
+      "talukNamek": "ಮೈಸೂರು ಪಶ್ಚಿಮ",
+      "talukNamee": "Mysore West",
+      "unit": "G"
+    },
+    {
+      "talukCode": 51,
+      "talukNamek": "Äå¦Äå˜µåë´µåê",
+      "talukNamee": "Nanjangudu",
+      "unit": "G"
+    },
+    {
+      "talukCode": 47,
+      "talukNamek": "ÇÝ²™²ìåìæÇÈå®±¸",
+      "talukNamee": "Periyapattana",
+      "unit": "G"
+    },
+    {
+      "talukCode": 222,
+      "talukNamek": "Saligrama",
+      "talukNamee": "Saligrama",
+      "unit": "G"
+    },
+    {
+      "talukCode": 48,
+      "talukNamek": "®. Äå²µåÜÝéÇÈåíú²µå",
+      "talukNamee": "T. Narasipura",
+      "unit": "G"
+    }
+  ],
+  "Raichur": [
+    {
+      "talukCode": 175,
+      "talukNamek": "ÁµðéÔåÁµåê˜µå",
+      "talukNamee": "Deodurga",
+      "unit": "G"
+    },
+    {
+      "talukCode": 173,
+      "talukNamek": "Ò˜µåÜÈåë²µå",
+      "talukNamee": "Lingsugur",
+      "unit": "G"
+    },
+    {
+      "talukCode": 172,
+      "talukNamek": "ÔåìæÄåÕ",
+      "talukNamee": "Manvi",
+      "unit": "G"
+    },
+    {
+      "talukCode": 174,
+      "talukNamek": "²µæ²ìåêôåë²µåê",
+      "talukNamee": "Raichur",
+      "unit": "G"
+    },
+    {
+      "talukCode": 29,
+      "talukNamek": "ÜÝÁ·µåÄåë²µåê",
+      "talukNamee": "Sindhanur",
+      "unit": "G"
+    },
+    {
+      "talukCode": 229,
+      "talukNamek": "ಸಿರವಾರ",
+      "talukNamee": "Siravara",
+      "unit": "G"
+    }
+  ],
+  "Rajajinagar": [
+    {
+      "talukCode": 10,
+      "talukNamek": "Êð˜µåâåë²µåê ‡¼å¾²µå",
+      "talukNamee": "Bangalore North",
+      "unit": "G"
+    },
+    {
+      "talukCode": 2,
+      "talukNamek": "²µæ§æ¨Äå˜µå²µå",
+      "talukNamee": "Rajajinagar",
+      "unit": "G"
+    },
+    {
+      "talukCode": 8,
+      "talukNamek": "‚²µæÔåêÇÈåíú²µå",
+      "talukNamee": "Sriramapura",
+      "unit": "G"
+    }
+  ],
+  "Ramanagara": [
+    {
+      "talukCode": 115,
+      "talukNamek": "ôåÄåÆÇÈå®±¸",
+      "talukNamee": "Channapatna",
+      "unit": "G"
+    },
+    {
+      "talukCode": 220,
+      "talukNamek": " ",
+      "talukNamee": "Harohalli",
+      "unit": "G"
+    },
+    {
+      "talukCode": 116,
+      "talukNamek": "’åÄå’åÇÈåíú²µå",
+      "talukNamee": "Kanakapura",
+      "unit": "G"
+    },
+    {
+      "talukCode": 109,
+      "talukNamek": "Ôåìæ˜µå´™",
+      "talukNamee": "Magadi",
+      "unit": "G"
+    },
+    {
+      "talukCode": 180,
+      "talukNamek": "²µæÔåêÄå˜µå²µå",
+      "talukNamee": "Ramanagara",
+      "unit": "G"
+    }
+  ],
+  "Shimoga": [
+    {
+      "talukCode": 155,
+      "talukNamek": "Ê·åÁµæÐÔå½",
+      "talukNamee": "Bhadravathi",
+      "unit": "G"
+    },
+    {
+      "talukCode": 156,
+      "talukNamek": "ßðëÜÈåÄå˜µå²µå",
+      "talukNamee": "Hosanagar",
+      "unit": "G"
+    },
+    {
+      "talukCode": 157,
+      "talukNamek": "ÜÈæ˜µå²µå",
+      "talukNamee": "Sagara",
+      "unit": "G"
+    },
+    {
+      "talukCode": 153,
+      "talukNamek": "Ø’æ²™ÇÈåíú²µå",
+      "talukNamee": "Shikaripura",
+      "unit": "G"
+    },
+    {
+      "talukCode": 154,
+      "talukNamek": "ØÔåÔðë˜µåš",
+      "talukNamee": "Shimoga",
+      "unit": "G"
+    },
+    {
+      "talukCode": 159,
+      "talukNamek": "ÜÈðë²µåÊ",
+      "talukNamee": "Soraba",
+      "unit": "G"
+    },
+    {
+      "talukCode": 158,
+      "talukNamek": "½éÁ¿·µåßåãä",
+      "talukNamee": "Thirthahalli",
+      "unit": "G"
+    }
+  ],
+  "Shivajinagar": [
+    {
+      "talukCode": 219,
+      "talukNamek": "Bangalore East",
+      "talukNamee": "Bangalore East",
+      "unit": "G"
+    },
+    {
+      "talukCode": 192,
+      "talukNamek": "’åïÚÈå»²µæ¦ÇÈåíú²µå",
+      "talukNamee": "Krishnarajapuram",
+      "unit": "G"
+    },
+    {
+      "talukCode": 4,
+      "talukNamek": "ØÔæ¨Äå˜µå²µå",
+      "talukNamee": "Shivajinagar",
+      "unit": "G"
+    }
+  ],
+  "Tumkur": [
+    {
+      "talukCode": 42,
+      "talukNamek": "¡’å”Äæ²ìåê’åÄåßåãä",
+      "talukNamee": "Chikkanayakanahalli",
+      "unit": "G"
+    },
+    {
+      "talukCode": 41,
+      "talukNamek": "˜µåêËÌ",
+      "talukNamee": "Gubbi",
+      "unit": "G"
+    },
+    {
+      "talukCode": 54,
+      "talukNamek": "ßåêÒ²ìåêë²µåêÁµåê˜µå",
+      "talukNamee": "Huliyurudurga",
+      "unit": "G"
+    },
+    {
+      "talukCode": 23,
+      "talukNamek": "’ðë²µå®˜µð²µð",
+      "talukNamee": "Koratagere",
+      "unit": "G"
+    },
+    {
+      "talukCode": 26,
+      "talukNamek": "’åêº˜µåÑó",
+      "talukNamee": "Kunigal",
+      "unit": "G"
+    },
+    {
+      "talukCode": 55,
+      "talukNamek": "ÔåêÁ·µåê˜™²™",
+      "talukNamee": "Madhugiri",
+      "unit": "G"
+    },
+    {
+      "talukCode": 53,
+      "talukNamek": "ÇÈæÔå˜µå´µå",
+      "talukNamee": "Pavagada",
+      "unit": "G"
+    },
+    {
+      "talukCode": 57,
+      "talukNamek": "ÜÝ²µæ",
+      "talukNamee": "Sira",
+      "unit": "G"
+    },
+    {
+      "talukCode": 52,
+      "talukNamek": "½ÇÈå®ë²µåê",
+      "talukNamee": "Tiptur",
+      "unit": "G"
+    },
+    {
+      "talukCode": 22,
+      "talukNamek": "¼åêÔåê’åê²µåê",
+      "talukNamee": "Tumkur",
+      "unit": "G"
+    },
+    {
+      "talukCode": 58,
+      "talukNamek": "¼åê²µåêÔðé’ð²µð",
+      "talukNamee": "Turuvekere",
+      "unit": "G"
+    }
+  ],
+  "Udupi": [
+    {
+      "talukCode": 160,
+      "talukNamek": "ÊðñÁµåë²µåê",
+      "talukNamee": "Baindur",
+      "unit": "C"
+    },
+    {
+      "talukCode": 166,
+      "talukNamek": "ÊÐßæÍÔå²µå",
+      "talukNamee": "Brahmavar",
+      "unit": "C"
+    },
+    {
+      "talukCode": 226,
+      "talukNamek": "Hebri",
+      "talukNamee": "Hebri",
+      "unit": "C"
+    },
+    {
+      "talukCode": 167,
+      "talukNamek": "’æ’åâå",
+      "talukNamee": "Karkala",
+      "unit": "C"
+    },
+    {
+      "talukCode": 165,
+      "talukNamek": "’åêÁµæÇÈåíú²µå",
+      "talukNamee": "Kundapur",
+      "unit": "C"
+    },
+    {
+      "talukCode": 164,
+      "talukNamek": "×å’å²µåÄæ²µæ²ìåê¸",
+      "talukNamee": "Shankaranarayana",
+      "unit": "C"
+    },
+    {
+      "talukCode": 168,
+      "talukNamek": "‡´µåêÇÝ",
+      "talukNamee": "Udupi",
+      "unit": "C"
+    }
+  ],
+  "Vijayanagara": [
+    {
+      "talukCode": 132,
+      "talukNamek": "ßå˜µå²™ÊðëÔåêÍÄåßåãä",
+      "talukNamee": "Hagaribommanahalli",
+      "unit": "G"
+    },
+    {
+      "talukCode": 63,
+      "talukNamek": "ßå²µåÇÈåÄåßåãä",
+      "talukNamee": "Harapanahalli",
+      "unit": "G"
+    },
+    {
+      "talukCode": 134,
+      "talukNamek": "ßðëÜÈåÇÈðé¯ð",
+      "talukNamee": "Hospet",
+      "unit": "G"
+    },
+    {
+      "talukCode": 133,
+      "talukNamek": "ßåëÕÄå ßå´µå˜µåÒ",
+      "talukNamee": "Huvina Hadagali",
+      "unit": "G"
+    },
+    {
+      "talukCode": 136,
+      "talukNamek": "’åë´™Ó˜™",
+      "talukNamee": "Kudligi",
+      "unit": "G"
+    }
+  ],
+  "Yadagiri": [
+    {
+      "talukCode": 210,
+      "talukNamek": "ಹುಣಸಗಿ",
+      "talukNamee": "Hunasagi",
+      "unit": "G"
+    },
+    {
+      "talukCode": 146,
+      "talukNamek": "×åÈåßæÇÈåíú²µå",
+      "talukNamee": "Shahapur",
+      "unit": "G"
+    },
+    {
+      "talukCode": 149,
+      "talukNamek": "ÜÈåê²µåÇÈåíú²µå",
+      "talukNamee": "Shorapur",
+      "unit": "G"
+    },
+    {
+      "talukCode": 144,
+      "talukNamek": "²ìåìæÁµå˜™²™",
+      "talukNamee": "Yadagiri",
+      "unit": "G"
+    }
+  ]
+}
