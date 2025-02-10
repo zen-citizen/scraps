@@ -206,7 +206,7 @@
                 fuseOptions = {
                     keys: ["village"],
                     isCaseSensitive: false,
-                    threshold: 0.3,
+                    threshold: 0.2,
                     distance: 1,
                     getFn: (obj, path) => {
                         const value = obj[path]
@@ -221,11 +221,11 @@
                 // Search
                 const result = fuse.search(villageName);
 
-                // select only top 3 results
-                let top3Results = result;
-                if (top3Results.length > 3) top3Results = top3Results.slice(0, 3);
+                // select only top 50 results
+                let topResults = result;
+                if (topResults.length > 50) topResults = topResults.slice(0, 50);
 
-                displayResults(top3Results);
+                displayResults(topResults);
             } catch (error) {
                 displayError(error);
             }
