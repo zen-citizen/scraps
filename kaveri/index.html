@@ -277,9 +277,17 @@
             resultContainer.appendChild(resultsDiv);
             
             // scroll to the result div
-            // document.getElementById("results").scrollIntoView();
-            const container = document.querySelector('.container');
             const resultsElement = document.getElementById('results');
+            if (resultsElement) {
+                resultsElement.scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'nearest',
+                    inline: 'nearest'
+                });
+                event.preventDefault();
+                event.stopPropagation();
+            }            
+            const container = document.querySelector('.container');
             container.scrollTo({
                 top: resultsElement.offsetTop - container.offsetTop,
                 behavior: 'smooth'
