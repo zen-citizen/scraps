@@ -214,16 +214,23 @@
                             value.replace(/\s+/g, ''),
                             value,
                         ]
-                    }
+                    },
                 };
                 const fuse = new Fuse(villageData, fuseOptions);
 
                 // Search
                 const result = fuse.search(villageName);
 
-                // select only top 50 results
-                let topResults = result;
-                if (topResults.length > 50) topResults = topResults.slice(0, 50);
+                // sort by village name
+                topResults = result.sort((a, b) => {
+                    if (a.item.village < b.item.village) {
+                        return -1;
+                    }
+                    if (a.item.village > b.item.village) {
+                        return 1;
+                    }
+                    return 0;
+                });
 
                 displayResults(topResults);
             } catch (error) {
