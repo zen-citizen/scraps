@@ -221,18 +221,7 @@
                 // Search
                 const result = fuse.search(villageName);
 
-                // sort by village name
-                topResults = result.sort((a, b) => {
-                    if (a.item.village < b.item.village) {
-                        return -1;
-                    }
-                    if (a.item.village > b.item.village) {
-                        return 1;
-                    }
-                    return 0;
-                });
-
-                displayResults(topResults);
+                displayResults(result);
             } catch (error) {
                 displayError(error);
             }
