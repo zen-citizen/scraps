@@ -366,6 +366,7 @@
 
         var villageMappings;
         var villageData;
+        let villageDataLoaded = false;
 
         // Load villages map on page load
         window.onload = async () => {
@@ -375,6 +376,7 @@
             villageData = (await villageMappings.ok)
                 ? await villageMappings.json()
                 : [];
+            villageDataLoaded = true;
             console.log("villages loadded!")
         };
 
@@ -416,7 +418,7 @@
                         ]
                     },
                 };
-                while (!villageData) {
+                while (!villageDataLoaded) {
                     await new Promise((resolve) => setTimeout(resolve, 100));
                 }
                 console.log("villageData", villageData);
