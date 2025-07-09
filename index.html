@@ -438,11 +438,11 @@
                 // Search
                 const result = fuse.search(villageName);
                 //sorting village name alphabetically
-                const sortedResult = result.sort((a, b) =>
-                    a.item.village.localeCompare(b.item.village)
-                );
+                // const sortedResult = result.sort((a, b) =>
+                //     a.item.village.localeCompare(b.item.village)
+                // );
 
-                displayResults(sortedResult);
+                displayResults(result);
             } catch (error) {
                 displayError(error);
             }
