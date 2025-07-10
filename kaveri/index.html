@@ -1,0 +1,734 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0"></script>
+    <title>EC Helper</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: "Open Sans", sans-serif;
+            background-color: #f9f9f9;
+            color: #000;
+        }
+
+        .layout {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            height: 100vh;
+            width: 480px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            border-right: 1px solid #e5e7eb;
+            flex-shrink: 0;
+        }
+
+        .sidebar-inner {
+            padding-left: 1rem;
+            padding-right: 1rem;
+            padding-top: 5px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            height: 100%;
+        }
+
+        .sidebar-header {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .sidebar-title {
+            font-size: 1.25rem;
+            font-weight: 900;
+            color: #2563eb;
+            flex-shrink: 0;
+        }
+
+        .sidebar-link {
+            font-size: 1.125rem;
+            line-height: 1.75rem;
+            font-weight: 700 !important;
+            color: #4b5563;
+            text-decoration: inherit;
+            align-self: center;
+            transition: color 0.2s ease;
+        }
+
+        .sidebar-link:hover {
+            color: #2563eb;
+        }
+
+        .main {
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            padding: 0 15px;
+            box-sizing: border-box;
+        }
+
+        .search-card {
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            flex: 1;
+            min-height: 0;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        #result {
+            overflow-y: auto;
+            margin-top: 10px;
+            flex: 1;
+            min-height: 0;
+        }
+
+        #searchBtn:disabled {
+            cursor: not-allowed;
+        }
+
+        #searchBtn:disabled svg path {
+            stroke: #60a5fa;
+        }
+
+        #searchBtn:hover svg path {
+            stroke: #60a5fa;
+        }
+
+        .search-card h2 {
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .search-form {
+            position: relative;
+            display: flex;
+            align-items: center;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .search-form input {
+            flex: 1;
+            padding: 12px 16px;
+            border: none;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .search-form button {
+            background: none;
+            border: none;
+            padding: 12px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #loading {
+            display: none;
+            text-align: center;
+            color: #000;
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        th {
+            background-color: #f4f4f4;
+            font-weight: bold;
+        }
+
+        .examples {
+            font-size: 0.9em;
+            color: #777;
+            margin-top: 10px;
+        }
+
+        .content-scrollable {
+            padding-right: 0.25rem;
+            font-size: 1rem;
+            line-height: calc(1.5 / 1);
+            margin-top: 1rem;
+        }
+
+        .paragraph {
+            color: #4b5563;
+            line-height: 1.6;
+        }
+
+        .paragraph-2 {
+            color: #4b5563;
+            line-height: 1.6;
+        }
+
+        .section-heading {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin-top: 1.70rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .link-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+        }
+
+        .link-list a {
+            text-decoration: underline;
+            color: #6b7280;
+            transition: opacity 0.2s ease-in-out;
+        }
+
+        .link-list a:hover {
+            opacity: 0.8;
+        }
+
+        .mt-2 {
+            margin-top: 0.5rem;
+        }
+
+        .mt-4 {
+            margin-top: 1rem;
+        }
+
+        .mt-7 {
+            margin-top: 1.75rem;
+        }
+
+        .mb-1 {
+            margin-bottom: 0.25rem;
+        }
+
+        .footer {
+            margin-top: auto;
+            margin-bottom: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #e5e7eb;
+            flex-shrink: 0;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.875rem;
+            padding-left: 0.75rem;
+            padding-right: 0.75rem;
+        }
+
+        .footer-links a {
+            text-decoration: underline;
+            color: #6b7280;
+            transition: opacity 0.2s ease-in-out;
+        }
+
+        .footer-links a:hover {
+            opacity: 0.8;
+        }
+
+        /* Mobile Header - Hidden on desktop */
+        .mobile-header {
+            display: none;
+        }
+
+        /* Mobile Footer - Hidden on desktop */
+        .mobile-footer {
+            display: none;
+        }
+
+        /* Mobile styles */
+        @media (max-width: 768px) {
+            .sidebar {
+                display: none;
+            }
+
+            .layout {
+                flex-direction: column;
+                min-height: 100vh;
+            }
+
+            .mobile-header {
+                display: block;
+                position: sticky;
+                top: 0;
+                z-index: 10;
+                background-color: white;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                border-bottom: 1px solid #e5e7eb;
+                padding: 1rem;
+            }
+
+            .mobile-header-content {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .mobile-title {
+                font-size: 1.125rem;
+                font-weight: 900;
+                color: #2563eb;
+            }
+
+            .mobile-link {
+                font-size: 1rem;
+                font-weight: 700;
+                color: #4b5563;
+                text-decoration: none;
+                transition: color 0.2s ease;
+            }
+
+            .mobile-link:hover {
+                color: #2563eb;
+            }
+
+            .main {
+                width: 100%;
+                height: auto;
+                overflow: visible;
+                padding: 0 10px;
+                flex: 1;
+            }
+
+            .search-card {
+                padding: 15px;
+                margin: 15px 0;
+                border-radius: 8px;
+            }
+
+            .search-card h2 {
+                font-size: 1.1rem;
+                margin-bottom: 15px;
+            }
+
+            .search-form input {
+                padding: 10px 12px;
+                font-size: 0.9rem;
+            }
+
+            .search-form button {
+                padding: 10px;
+            }
+
+            .search-form button svg {
+                width: 24px;
+                height: 24px;
+            }
+
+            #result {
+                overflow-y: visible;
+                margin-top: 15px;
+                flex: none;
+                min-height: auto;
+            }
+
+            table {
+                font-size: 0.85rem;
+                margin-top: 15px;
+            }
+
+            th,
+            td {
+                padding: 8px 6px;
+                font-size: 0.8rem;
+            }
+
+            th {
+                font-size: 0.85rem;
+            }
+
+            .mobile-footer {
+                display: block;
+                background-color: white;
+                border-top: 1px solid #e5e7eb;
+                padding: 1rem;
+                margin-top: 2rem;
+            }
+
+            .mobile-footer-content {
+                max-width: 100%;
+            }
+
+            .mobile-description {
+                color: #4b5563;
+                line-height: 1.5;
+                margin-bottom: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .mobile-section-heading {
+                font-size: 1rem;
+                font-weight: 600;
+                color: #1f2937;
+                margin-bottom: 0.5rem;
+            }
+
+            .mobile-data-sources {
+                color: #4b5563;
+                line-height: 1.5;
+                font-size: 0.85rem;
+                margin-bottom: 1rem;
+            }
+
+            .mobile-link-list {
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+                font-size: 0.8rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .mobile-link-list a {
+                text-decoration: underline;
+                color: #6b7280;
+                transition: opacity 0.2s ease-in-out;
+            }
+
+            .mobile-link-list a:hover {
+                opacity: 0.8;
+            }
+
+            .mobile-footer-links {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 1rem;
+                font-size: 0.8rem;
+                border-top: 1px solid #e5e7eb;
+                padding-top: 1rem;
+            }
+
+            .mobile-footer-links a {
+                text-decoration: underline;
+                color: #6b7280;
+                transition: opacity 0.2s ease-in-out;
+            }
+
+            .mobile-footer-links a:hover {
+                opacity: 0.8;
+            }
+
+            /* Very small screens */
+            @media (max-width: 480px) {
+                .mobile-header {
+                    padding: 0.75rem;
+                }
+
+                .mobile-title {
+                    font-size: 1rem;
+                }
+
+                .mobile-link {
+                    font-size: 0.9rem;
+                }
+
+                .search-card {
+                    padding: 10px;
+                    margin: 10px 0;
+                }
+
+                .mobile-footer-links {
+                    flex-direction: column;
+                    gap: 0.5rem;
+                    font-size: 0.75rem;
+                }
+
+                table {
+                    display: block;
+                    overflow-x: auto;
+                    white-space: nowrap;
+                }
+
+                th,
+                td {
+                    padding: 6px 4px;
+                    font-size: 0.75rem;
+                    min-width: 80px;
+                }
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+<!-- Mobile Header - Only visible on mobile -->
+<div class="mobile-header">
+    <div class="mobile-header-content">
+        <h1 class="mobile-title">Kaveri Village Finder</h1>
+        <a href="https://zencitizen.in" target="_blank" rel="noopener noreferrer" class="mobile-link">
+            Zen Citizen
+        </a>
+    </div>
+</div>
+
+<div class="layout">
+    <!-- Desktop Sidebar - Hidden on mobile -->
+    <div class="sidebar">
+        <div class="sidebar-inner">
+            <div class="sidebar-header">
+                <h1 class="sidebar-title">Kaveri Village Finder</h1>
+                <a href="https://zencitizen.in" target="_blank" rel="noopener noreferrer" class="sidebar-link">
+                    Zen Citizen
+                </a>
+            </div>
+            <div class="content-scrollable">
+                <p class="paragraph">
+                    This tool makes it easy to search for your village and view its corresponding district, taluk,
+                    and hobli details as mapped in the Kaveri database — just enter the village name to get started.
+                </p>
+
+                <h2 class="section-heading mt-7 mb-1">Data Sources</h2>
+                <p class="paragraph-2">
+                    We pull information from Government records. While we strive for accuracy, these sources can
+                    sometimes be incomplete or outdated.
+                </p>
+
+                <div class="link-list mt-2">
+                    <a href="https://github.com/zen-citizen/scraps/blob/main/kaveri/district_talukas.json"
+                       target="_blank" rel="noopener noreferrer">Kaveri Database</a>
+                </div>
+            </div>
+            <div class="footer">
+                <div class="footer-links">
+                    <a href="https://forms.gle/azVUaepdWV1frvDS8" target="_blank">Report an Error</a>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLScQS_-VgUFQZJedyu6iIlpoYymsKSyGUhrvPoJX1WkZGQqfLQ/viewform"
+                       target="_blank">Volunteer with Us</a>
+                    <a href="https://github.com/zen-citizen/scraps" target="_blank">Open Source</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main container">
+        <div class="search-card">
+            <h2>Enter the Village Name to find its Hobli, Taluk, and District as in Kaveri</h2>
+            <form id="villageForm" class="search-form">
+                <input type="text" id="villageName"
+                       placeholder="Enter at least three letters of your village name and search" />
+                <button type="submit" id="searchBtn" disabled>
+                    <svg viewBox="0 0 24 24" fill="none" width="28" height="28" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                                d="M15.7955 15.8111L21 21M18 10.5C18 14.6421 14.6421 18 10.5 18C6.35786 18 3 14.6421 3 10.5C3 6.35786 6.35786 3 10.5 3C14.6421 3 18 6.35786 18 10.5Z"
+                                stroke="#1d4ed8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+            </form>
+            <p id="loading">Fetching data, please wait...</p>
+            <div id="result"></div>
+        </div>
+    </main>
+</div>
+
+<!-- Mobile Footer - Only visible on mobile -->
+<div class="mobile-footer">
+    <div class="mobile-footer-content">
+        <p class="mobile-description">
+            This tool makes it easy to search for your village and view its corresponding district, taluk,
+            and hobli details as mapped in the Kaveri database — just enter the village name to get started.
+        </p>
+
+        <h3 class="mobile-section-heading">Data Sources</h3>
+        <p class="mobile-data-sources">
+            We pull information from Government records. While we strive for accuracy, these sources can
+            sometimes be incomplete or outdated.
+        </p>
+
+        <div class="mobile-link-list">
+            <a href="https://github.com/zen-citizen/scraps/blob/main/kaveri/district_talukas.json"
+               target="_blank" rel="noopener noreferrer">Kaveri Database</a>
+        </div>
+
+        <div class="mobile-footer-links">
+            <a href="https://forms.gle/azVUaepdWV1frvDS8" target="_blank">Report an Error</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScQS_-VgUFQZJedyu6iIlpoYymsKSyGUhrvPoJX1WkZGQqfLQ/viewform"
+               target="_blank">Volunteer with Us</a>
+            <a href="https://github.com/zen-citizen/scraps" target="_blank">Open Source</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    var villageMappings;
+    var villageData;
+    let villageDataLoaded = false;
+
+    // Load villages map on page load
+    window.onload = async () => {
+        villageMappings = await fetch(
+            "https://zencitizen-bucket.s3.ap-south-1.amazonaws.com/remap.json",
+        );
+        villageData = (await villageMappings.ok)
+            ? await villageMappings.json()
+            : [];
+        villageDataLoaded = true;
+        console.log("villages loadded!")
+    };
+
+    const loadingText = document.getElementById("loading");
+    const resultContainer = document.getElementById("result");
+    const searchButton = document.getElementById("searchBtn");
+    const inputField = document.getElementById("villageName");
+    const villageForm = document.getElementById("villageForm");
+
+    // Enable Search button when input has 3 or more characters
+    inputField.addEventListener("input", () => {
+        searchButton.disabled = inputField.value.trim().length < 3;
+    });
+
+    // Function to fetch village data
+    async function fetchVillageData(event) {
+        event.preventDefault(); // Prevent the form from submitting
+
+        const villageName = inputField.value.trim().toLowerCase();
+
+        if (villageName.length < 3) {
+            return;
+        }
+
+        loadingText.style.display = "block";
+
+        try {
+            fuseOptions = {
+                keys: ["village"],
+                isCaseSensitive: false,
+                threshold: 0.2,
+                distance: 0,
+                getFn: (obj, path) => {
+                    const value = obj[path]
+                    return [
+                        value.replace(/\s+/g, ''),
+                        value,
+                    ]
+                },
+            };
+            while (!villageDataLoaded) {
+                await new Promise((resolve) => setTimeout(resolve, 100));
+            }
+            console.log("villageData", villageData);
+            const fuse = new Fuse(villageData, fuseOptions);
+
+            // Search
+            const result = fuse.search(villageName);
+            displayResults(result);
+        } catch (error) {
+            displayError(error);
+        }
+    }
+
+    // Function to display results
+    function displayResults(data) {
+        loadingText.style.display = "none";
+        // Clear previous results
+        const previousResults = document.querySelector(".results");
+        if (previousResults) {
+            previousResults.remove();
+        }
+
+        const resultsDiv = document.createElement("div");
+        resultsDiv.classList.add("results");
+        resultsDiv.setAttribute("id", "results");
+
+        if (Array.isArray(data) && data.length > 0) {
+            const table = document.createElement("table");
+            const thead = document.createElement("thead");
+            const tbody = document.createElement("tbody");
+            const headerRow = document.createElement("tr");
+            ["Village", "District", "Taluka", "Hobli"].forEach((text) => {
+                const th = document.createElement("th");
+                th.textContent = text;
+                headerRow.appendChild(th);
+            });
+            thead.appendChild(headerRow);
+            table.appendChild(thead);
+            data.forEach((item) => {
+                const row = document.createElement("tr");
+                ["village", "districtNamee", "talukNamee", "hoblinamee"].forEach(
+                    (key) => {
+                        const td = document.createElement("td");
+                        td.textContent = item["item"][key] || "N/A";
+                        row.appendChild(td);
+                    },
+                );
+                tbody.appendChild(row);
+            });
+            table.appendChild(tbody);
+            resultsDiv.appendChild(table);
+        } else {
+            resultsDiv.innerHTML += '<div class="no-results" style="text-align: center; padding: 10px; font-size: 1em; color: #666;">Can\'t find the village you\'re looking for, or noticed incorrect information? Let us know by reporting it <a href="https://forms.gle/azVUaepdWV1frvDS8" target="_blank">here</a>.</div>';
+        }
+
+        resultContainer.appendChild(resultsDiv);
+
+        // scroll to the result div
+        const resultsElement = document.getElementById('results');
+        if (resultsElement) {
+            resultsElement.scrollIntoView({
+                behavior: 'smooth',
+                block: 'nearest',
+                inline: 'nearest'
+            });
+        }
+    }
+
+    // Function to handle error
+    function displayError(error) {
+        loadingText.style.display = "none";
+        // Clear previous results
+        const previousResults = document.querySelector(".results");
+        if (previousResults) {
+            previousResults.remove();
+        }
+
+        const errorDiv = document.createElement("div");
+        errorDiv.classList.add("results");
+        errorDiv.innerHTML = `<div style="color: red;">Error fetching data: ${error.message}</div>`;
+        resultContainer.appendChild(errorDiv);
+    }
+
+    // Listen for form submission
+    villageForm.addEventListener("submit", fetchVillageData);
+</script>
+</body>
+
+</html>
