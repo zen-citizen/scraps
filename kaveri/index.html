@@ -148,19 +148,24 @@
             margin-top: 20px;
         }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
+        .table-container {
+            max-height: 400px;
+            overflow-y: auto;
             margin-top: 20px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             border-radius: 5px;
-            overflow: hidden;
+            border: 1px solid #ddd;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
         }
 
         th,
         td {
             padding: 12px;
-            border: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
             text-align: left;
         }
 
@@ -171,6 +176,10 @@
         th {
             background-color: #f4f4f4;
             font-weight: bold;
+            position: sticky;
+            top: 0;
+            z-index: 1;
+            border-bottom: 2px solid #ddd;
         }
 
         .examples {
@@ -270,6 +279,11 @@
             display: none;
         }
 
+        /* Mobile Description - Hidden on desktop */
+        .mobile-description {
+            display: none;
+        }
+
         /* Mobile Footer - Hidden on desktop */
         .mobile-footer {
             display: none;
@@ -321,6 +335,17 @@
                 color: #2563eb;
             }
 
+            .mobile-description {
+                display: block;
+                color: #4b5563;
+                line-height: 1.5;
+                margin: 1rem;
+                font-size: 0.9rem;
+                background-color: white;
+                border-bottom: 1px solid #e5e7eb;
+                padding-bottom: 1rem;
+            }
+
             .main {
                 width: 100%;
                 height: auto;
@@ -361,19 +386,32 @@
                 min-height: auto;
             }
 
+            .table-container {
+                max-height: 300px;
+                overflow-y: auto;
+                margin-top: 15px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                border-radius: 5px;
+                border: 1px solid #ddd;
+            }
+
             table {
                 font-size: 0.85rem;
-                margin-top: 15px;
             }
 
             th,
             td {
                 padding: 8px 6px;
                 font-size: 0.8rem;
+                border-bottom: 1px solid #ddd;
             }
 
             th {
                 font-size: 0.85rem;
+                position: sticky;
+                top: 0;
+                z-index: 1;
+                border-bottom: 2px solid #ddd;
             }
 
             .mobile-footer {
@@ -386,13 +424,6 @@
 
             .mobile-footer-content {
                 max-width: 100%;
-            }
-
-            .mobile-description {
-                color: #4b5563;
-                line-height: 1.5;
-                margin-bottom: 1rem;
-                font-size: 0.9rem;
             }
 
             .mobile-section-heading {
@@ -467,8 +498,9 @@
                 }
 
                 .mobile-footer-links {
-                    flex-direction: column;
-                    gap: 0.5rem;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    gap: 0.75rem;
                     font-size: 0.75rem;
                 }
 
@@ -501,6 +533,12 @@
     </div>
 </div>
 
+<!-- Mobile Description - Only visible on mobile -->
+<div class="mobile-description">
+    This tool makes it easy to search for your village and view its corresponding district, taluk,
+    and hobli details as mapped in the Kaveri database — just enter the village name to get started.
+</div>
+
 <div class="layout">
     <!-- Desktop Sidebar - Hidden on mobile -->
     <div class="sidebar">
@@ -524,7 +562,7 @@
                 </p>
 
                 <div class="link-list mt-2">
-                    <a href="https://github.com/zen-citizen/scraps/blob/main/kaveri/district_talukas.json"
+                    <a href="https://kaveri.karnataka.gov.in"
                        target="_blank" rel="noopener noreferrer">Kaveri Database</a>
                 </div>
             </div>
@@ -563,11 +601,6 @@
 <!-- Mobile Footer - Only visible on mobile -->
 <div class="mobile-footer">
     <div class="mobile-footer-content">
-        <p class="mobile-description">
-            This tool makes it easy to search for your village and view its corresponding district, taluk,
-            and hobli details as mapped in the Kaveri database — just enter the village name to get started.
-        </p>
-
         <h3 class="mobile-section-heading">Data Sources</h3>
         <p class="mobile-data-sources">
             We pull information from Government records. While we strive for accuracy, these sources can
