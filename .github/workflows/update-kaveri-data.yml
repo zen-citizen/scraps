@@ -1,0 +1,157 @@
+name: Automated Kaveri Data Update
+
+on:
+  schedule:
+    # Run weekly full scrape on Sunday at 3 AM UTC  
+    - cron: '0 3 * * 0'
+  
+  workflow_dispatch:
+    inputs:
+      force_full_scrape:
+        description: 'Force full scrape regardless of changes'
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: write
+  actions: read
+  issues: write
+
+jobs:
+  update-kaveri-data:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install requests
+    
+    - name: Update credentials in config
+      env:
+        KAVERI_AUTH: ${{ secrets.KAVERI_AUTH_TOKEN }}
+        KAVERI_COOKIE: ${{ secrets.KAVERI_COOKIE }}
+      run: |
+        cd kaveri
+        cat > update_creds.py << 'EOF'
+        import json
+        import os
+        from datetime import datetime
+
+        # Load config
+        with open('config.json', 'r') as f:
+            config = json.load(f)
+
+        # Update credentials from secrets
+        if os.getenv('KAVERI_AUTH') and os.getenv('KAVERI_COOKIE'):
+            config['credentials']['authorization'] = os.getenv('KAVERI_AUTH')
+            config['credentials']['cookie'] = os.getenv('KAVERI_COOKIE')
+            config['credentials']['last_updated'] = datetime.now().isoformat()
+            
+            with open('config.json', 'w') as f:
+                json.dump(config, f, indent=2)
+            print('✓ Credentials updated from secrets')
+        else:
+            print('⚠️ No credentials found in secrets')
+        EOF
+        python3 update_creds.py
+    
+    - name: Run data scraper
+      id: scraper
+      run: |
+        cd kaveri
+        python3 automated_scraper.py
+        
+        # Check if files were updated and provide summary
+        if git diff --quiet; then
+          echo "changes_detected=false" >> $GITHUB_OUTPUT
+          echo "### 📊 Scraping Results" >> $GITHUB_STEP_SUMMARY
+          echo "✅ **Scraping completed successfully**" >> $GITHUB_STEP_SUMMARY
+          echo "📄 **Result**: No changes detected - data is already up to date" >> $GITHUB_STEP_SUMMARY
+          echo "🕒 **Checked at**: $(date '+%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "The Karnataka administrative data is current and no updates were needed." >> $GITHUB_STEP_SUMMARY
+        else
+          echo "changes_detected=true" >> $GITHUB_OUTPUT
+          # Count changed files
+          changed_files=$(git diff --name-only | wc -l | tr -d ' ')
+          echo "### 📊 Scraping Results" >> $GITHUB_STEP_SUMMARY
+          echo "✅ **Scraping completed successfully**" >> $GITHUB_STEP_SUMMARY
+          echo "🔄 **Result**: Data changes detected and updated" >> $GITHUB_STEP_SUMMARY
+          echo "📁 **Files changed**: $changed_files" >> $GITHUB_STEP_SUMMARY
+          echo "🕒 **Updated at**: $(date '+%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Changed files:**" >> $GITHUB_STEP_SUMMARY
+          git diff --name-only | sed 's/^/- /' >> $GITHUB_STEP_SUMMARY
+        fi
+    
+    - name: Commit and push changes
+      if: steps.scraper.outputs.changes_detected == 'true'
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add kaveri/*.json
+        git commit -m "🤖 Automated update: Kaveri data $(date '+%Y-%m-%d %H:%M')"
+        git push
+        echo "### 🚀 Changes Committed" >> $GITHUB_STEP_SUMMARY
+        echo "✅ Successfully committed and pushed data updates to repository" >> $GITHUB_STEP_SUMMARY
+    
+    - name: Report no changes
+      if: steps.scraper.outputs.changes_detected == 'false'
+      run: |
+        echo "### ✨ No Action Needed" >> $GITHUB_STEP_SUMMARY
+        echo "🎯 **Status**: All data is current" >> $GITHUB_STEP_SUMMARY
+        echo "⏭️ **Next check**: Tomorrow at 2 AM UTC" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "The automation ran successfully but found no changes in the Karnataka administrative data." >> $GITHUB_STEP_SUMMARY
+    
+    - name: Create release on major changes
+      if: steps.scraper.outputs.changes_detected == 'true' && github.event.schedule == '0 3 * * 0'
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: data-v${{ github.run_number }}
+        release_name: Kaveri Data Update v${{ github.run_number }}
+        body: |
+          Automated weekly data update from Kaveri website.
+          
+          Updated files:
+          - District-Taluka mappings
+          - Taluka-Hobli mappings  
+          - Hobli-Village mappings
+          - Reverse village lookup data
+          
+          Generated on: ${{ github.event.repository.updated_at }}
+        draft: false
+        prerelease: false
+    
+    - name: Notify on failure
+      if: failure()
+      uses: actions/github-script@v6
+      with:
+        script: |
+          github.rest.issues.create({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            title: '🚨 Kaveri Data Scraping Failed',
+            body: `The automated Kaveri data scraping workflow failed.
+            
+            **Workflow:** ${context.workflow}
+            **Run ID:** ${context.runId}
+            **Triggered by:** ${context.eventName}
+            
+            Please check the logs and update authentication credentials if needed.`,
+            labels: ['bug', 'automation']
+          })

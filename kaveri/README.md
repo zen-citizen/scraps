@@ -1,6 +1,14 @@
 # the data
 [remap.json](remap.json) contains a reverse mapping of Village names to their corresponding District, Taluk and Hobli names
 
+## 🤖 Automated Updates
+The data is automatically updated using an automated scraper that runs weekly. See [AUTOMATION.md](AUTOMATION.md) for setup instructions.
+
+- **Daily checks**: Monitors for data changes
+- **Weekly updates**: Full data refresh every Sunday  
+- **Change detection**: Only updates when actual changes occur
+- **Backup system**: Maintains historical versions
+
 # why?
 Some documents/information on the [kaveri website](https://kaveri.karnataka.gov.in/) ask you to select your Village from a drop down. This drop down is preceded by a District, a Taluk and a Hobli drop down, each filled based on the previous selections. Finding your Village requires a lot of trial and error to get the right options selected.
 
