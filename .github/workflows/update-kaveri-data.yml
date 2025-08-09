@@ -1,0 +1,147 @@
+name: Automated Kaveri Data Update
+
+on:
+  schedule:
+    # Run weekly full scrape on Sunday at 3 AM UTC  
+    - cron: '0 3 * * 0'
+  
+  workflow_dispatch:
+    inputs:
+      force_full_scrape:
+        description: 'Force full scrape regardless of changes'
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+concurrency:
+  group: kaveri-data-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  update-kaveri-data:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version-file: '.python-version'
+        cache: 'pip'
+        cache-dependency-path: 'kaveri/requirements.txt'
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r kaveri/requirements.txt
+    
+    - name: Update credentials in config
+      env:
+        KAVERI_AUTH: ${{ secrets.KAVERI_AUTH_TOKEN }}
+        KAVERI_COOKIE: ${{ secrets.KAVERI_COOKIE }}
+      run: |
+        python3 kaveri/scripts/update_creds.py
+    
+    - name: Run data scraper
+      id: scraper
+      working-directory: kaveri
+      run: |
+        python3 automated_scraper.py
+        
+        # Remove secret changes in config before diff/commit
+        git restore --worktree --staged config.json || git checkout -- config.json || true
+        
+        # Check if files were updated and provide summary (only data files)
+        if git diff --quiet -- \
+          district_talukas.json taluk_hoblis.json hobli_villages.json remap.json village_mapping.json; then
+          echo "changes_detected=false" >> $GITHUB_OUTPUT
+          echo "### 📊 Scraping Results" >> $GITHUB_STEP_SUMMARY
+          echo "✅ **Scraping completed successfully**" >> $GITHUB_STEP_SUMMARY
+          echo "📄 **Result**: No changes detected - data is already up to date" >> $GITHUB_STEP_SUMMARY
+          echo "🕒 **Checked at**: $(date '+%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "The Karnataka administrative data is current and no updates were needed." >> $GITHUB_STEP_SUMMARY
+        else
+          echo "changes_detected=true" >> $GITHUB_OUTPUT
+          # Count changed files (only data files)
+          changed_files=$(git diff --name-only -- \
+            district_talukas.json taluk_hoblis.json hobli_villages.json remap.json village_mapping.json | wc -l | tr -d ' ')
+          echo "### 📊 Scraping Results" >> $GITHUB_STEP_SUMMARY
+          echo "✅ **Scraping completed successfully**" >> $GITHUB_STEP_SUMMARY
+          echo "🔄 **Result**: Data changes detected and updated" >> $GITHUB_STEP_SUMMARY
+          echo "📁 **Files changed**: $changed_files" >> $GITHUB_STEP_SUMMARY
+          echo "🕒 **Updated at**: $(date '+%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Changed files:**" >> $GITHUB_STEP_SUMMARY
+          git diff --name-only -- \
+            district_talukas.json taluk_hoblis.json hobli_villages.json remap.json village_mapping.json | sed 's/^/- /' >> $GITHUB_STEP_SUMMARY
+        fi
+    
+    - name: Set commit timestamp
+      if: steps.scraper.outputs.changes_detected == 'true'
+      id: set_commit_timestamp
+      run: echo "commit_timestamp=$(date '+%Y-%m-%d %H:%M')" >> $GITHUB_OUTPUT
+
+    - name: Create Pull Request
+      if: steps.scraper.outputs.changes_detected == 'true'
+      uses: peter-evans/create-pull-request@v7
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        labels: kaveri-data-update, automation
+        commit-message: "🤖 Kaveri data ${{ steps.set_commit_timestamp.outputs.commit_timestamp }}"
+        title: "🤖 Kaveri data ${{ steps.set_commit_timestamp.outputs.commit_timestamp }}"
+        body: |
+          Automated update of Karnataka administrative data from Kaveri.
+          
+          This pull request was generated automatically by the update-kaveri-data workflow.
+        branch: kaveri-data-update-${{ github.run_number }}
+        base: ${{ github.event.repository.default_branch }}
+        add-paths: |
+          kaveri/district_talukas.json
+          kaveri/taluk_hoblis.json
+          kaveri/hobli_villages.json
+          kaveri/remap.json
+          kaveri/village_mapping.json
+
+    - name: Summarize pull request creation
+      if: steps.scraper.outputs.changes_detected == 'true'
+      run: |
+        echo "### 🚀 Pull Request Created" >> $GITHUB_STEP_SUMMARY
+        echo "✅ Successfully created a pull request with updated Karnataka administrative data." >> $GITHUB_STEP_SUMMARY
+    
+    - name: Report no changes
+      if: steps.scraper.outputs.changes_detected == 'false'
+      run: |
+        echo "### ✨ No Action Needed" >> $GITHUB_STEP_SUMMARY
+        echo "🎯 **Status**: All data is current" >> $GITHUB_STEP_SUMMARY
+        echo "⏭️ **Next check**: weekly Sunday 03:00 UTC" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "The automation ran successfully but found no changes in the Karnataka administrative data." >> $GITHUB_STEP_SUMMARY
+    
+    - name: Notify on failure
+      if: failure()
+      uses: actions/github-script@v6
+      with:
+        script: |
+          github.rest.issues.create({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            title: '🚨 Kaveri Data Scraping Failed',
+            body: `The automated Kaveri data scraping workflow failed.
+            
+            **Workflow:** ${context.workflow}
+            **Run ID:** ${context.runId}
+            **Triggered by:** ${context.eventName}
+            
+            Please check the logs and update authentication credentials if needed.`,
+            labels: ['bug', 'automation']
+          })

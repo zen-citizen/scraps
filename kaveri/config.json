@@ -1,0 +1,25 @@
+{
+  "scraper_config": {
+    "base_url": "https://kaveri.karnataka.gov.in/api",
+    "rate_limit_delay": 1,
+    "max_retries": 3,
+    "backup_retention_days": 30,
+    "log_level": "INFO"
+  },
+  "schedule": {
+    "daily_check": "02:00",
+    "weekly_full_scrape": "Sunday 03:00",
+    "monthly_cleanup": "1st 04:00"
+  },
+  "notifications": {
+    "email_on_changes": true,
+    "email_on_errors": true,
+    "webhook_url": null
+  },
+  "credentials": {
+    "note": "Update these from a logged-in browser session",
+    "authorization": "YOUR_AUTH_TOKEN_HERE",
+    "cookie": "YOUR_COOKIE_HERE",
+    "last_updated": null
+  }
+}
